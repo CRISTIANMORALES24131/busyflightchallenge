@@ -1,0 +1,43 @@
+spring:
+  main:
+    banner-mode: "off"
+    web-application-type: servlet
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+       INDENT_OUTPUT: false
+    default-property-inclusion: non_null
+
+server:
+  compression:
+    enabled: true
+  servlet:
+    context-path: /busyflight
+  port: 8080
+
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      show-details: never
+      cache:
+        time-to-live: 20000ms
+    info:
+      enabled: true
+
+info:
+  build:
+    group: com
+    artifact: flights
+    version: 1.0
+    name: Busy flights
+
+flight.supplier:
+  crazyair:
+    service:
+      url: http://www.mocky.io/v2/5e61c44530000093004d5515
+  toughjet:
+    service:
+      url: http://www.mocky.io/v2/5e61c42a30000053004d5514
